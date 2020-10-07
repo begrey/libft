@@ -3,42 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jimkwon <jimkwon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: begrey <begrey@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 15:57:12 by jimkwon           #+#    #+#             */
-/*   Updated: 2020/10/05 16:14:35 by jimkwon          ###   ########.fr       */
+/*   Updated: 2020/10/07 16:16:43 by begrey           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 #include <strings.h>
-
-int main()
+#include <unistd.h>
+static void             check_bzero(void *mem, int c, int len, int n_bzero)
 {
-    char a[20];
-    char b[20];
+        memset(mem, c, len);
+        ft_bzero(mem, n_bzero);
+        write(1, mem, len);
+}
+int                             main(int argc, const char *argv[])
+{
+        void    *mem;
+        int             len;
+        int             arg;
 
-    memset(a, 65, sizeof(a));
-    ft_memset(b, 65, sizeof(b));
-
-    for(int i = 0; i < (sizeof(a)/sizeof(char)); i++){
-        printf("%c ", a[i]);
-    }
-    printf("\n");
-    for(int i = 0; i < (sizeof(b)/sizeof(char)); i++){
-        printf("%c ", b[i]);
-    }
-    printf("\n");
-    bzero(a, sizeof(a));
-    ft_bzero(b, sizeof(b));
-    for(int i = 0; i < (sizeof(a)/sizeof(char)); i++){
-        printf("%c ", a[i]);
-        printf("g");
-    }
-    printf("\n");
-    for(int i = 0; i < (sizeof(b)/sizeof(char)); i++){
-        printf("%c ", b[i]);
-    }
-    printf("\n");
+        alarm(5);
+        len = 5;
+        if (argc == 1 || !(mem = malloc(sizeof(*mem) * len)))
+                return (0);
+        if ((arg = atoi(argv[1])) == 1)
+                check_bzero(mem, 'e', len, 5);
+        else if (arg == 2)
+                check_bzero(mem, 'e', len, 0);
+        free(mem);
+        return (0);
 }

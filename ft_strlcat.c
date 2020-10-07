@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: begrey <begrey@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 14:21:25 by begrey            #+#    #+#             */
-/*   Updated: 2020/10/07 15:34:05 by begrey           ###   ########.fr       */
+/*   Created: 2020/10/06 15:23:55 by begrey            #+#    #+#             */
+/*   Updated: 2020/10/06 15:41:46 by begrey           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int         ft_memcmp(const void* ptr1, const void* ptr2, size_t num)
+size_t  ft_strlcat(char *dest, const char *src , size_t size)
 {
-    const char    *p1;
-    const char    *p2;
-    size_t          i;
+    size_t  i;
 
-    p1 = ptr1;
-    p2 = ptr2;
     i = 0;
-    while (i < num && p1[i] != '\0' && p2[i] != '\0')
+    while (i < size - ft_strlen(dest) - 1)
     {
-        if (p1[i] != p2[i]) 
-            return (p1[i] - p2[i]);
+        *dest = *src;
+        dest++;
+        src++;
         i++;
     }
-    return (p1[i] - p2[i]);
+    *dest = '\0';
+    if (size > ft_strlen(dest))
+        return (ft_strlen(src) + ft_strlen(dest));
+    else
+        return (ft_strlen(src) + size);
 }
