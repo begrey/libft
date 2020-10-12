@@ -6,7 +6,7 @@
 /*   By: jimkwon <jimkwon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 20:03:15 by jimkwon           #+#    #+#             */
-/*   Updated: 2020/10/12 19:16:54 by jimkwon          ###   ########.fr       */
+/*   Updated: 2020/10/13 03:22:30 by jimkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 void    *ft_memset(void *dest, int c, size_t len);
 void	*ft_memcpy(void *dest, const void *src, size_t num);
@@ -43,4 +44,8 @@ void    *ft_calloc(size_t elt_count, size_t elt_size);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *s1, const char *set);
+void    ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 #endif

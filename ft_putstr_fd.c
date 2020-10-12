@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jimkwon <jimkwon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/05 15:57:12 by jimkwon           #+#    #+#             */
-/*   Updated: 2020/10/13 04:13:39 by jimkwon          ###   ########.fr       */
+/*   Created: 2020/10/13 01:55:08 by jimkwon           #+#    #+#             */
+/*   Updated: 2020/10/13 01:55:54 by jimkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <strings.h>
 
-int             main()
+void	ft_putstr_fd(char *s, int fd)
 {
-	int n = -2147483648LL;
+	size_t	len;
 
-	printf("%d\n", n);
+	len = ft_strlen(s);
+	write(fd, s, len);
 }
