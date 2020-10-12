@@ -6,7 +6,7 @@
 /*   By: jimkwon <jimkwon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 20:03:15 by jimkwon           #+#    #+#             */
-/*   Updated: 2020/10/12 04:51:49 by jimkwon          ###   ########.fr       */
+/*   Updated: 2020/10/12 15:08:50 by jimkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ size_t  ft_strlcat(char *dest, const char *src , size_t size);
 char    *ft_strchr(const char *str, int c);
 char    *ft_strrchr(const char *str, int c);
 char    *ft_strnstr(const char *big, const char *little, size_t len);
+char	*ft_strdup(const char *s);
 int     ft_strncmp(const char *str1, const char *str2, size_t num);
 int     ft_atoi(const char* str);
 int     ft_isalpha(int c);
@@ -39,5 +40,4 @@ int		ft_isprint(int c);
 int     ft_tolower(int c);
 int     ft_toupper(int c);
 void    *ft_calloc(size_t elt_count, size_t elt_size);
-char    *strdup(const char *str);
 #endif

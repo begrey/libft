@@ -6,22 +6,32 @@
 /*   By: jimkwon <jimkwon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/06 16:30:25 by begrey            #+#    #+#             */
-/*   Updated: 2020/10/12 04:56:51 by jimkwon          ###   ########.fr       */
+/*   Updated: 2020/10/12 13:55:15 by jimkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *str1, const char *str2, size_t num)
+int					ft_strncmp(const char *str1, const char *str2, size_t num)
 {
-	
-	while (num > 0 && *str1 != '\0' && *str2 != '\0')
+	unsigned char	*p1;
+	unsigned char	*p2;
+	size_t			i;
+
+	i = 0;
+	p1 = (unsigned char *)str1;
+	p2 = (unsigned char *)str2;
+	while (i < num && *p1 != '\0' && *p2 != '\0')
 	{
-		if (*str1 != *str2)
-			return (*str1 - *str2);
-		str1++;
-		str2++;
-		num--;
+		if (*p1 != *p2)
+			return (*p1 - *p2);
+		p1++;
+		p2++;
+		i++;
 	}
+	if (i == num)
+		return (0);
+	else if (*p1 != '\0' || *p2 != '\0')
+		return (*p1 - *p2);
 	return (0);
 }

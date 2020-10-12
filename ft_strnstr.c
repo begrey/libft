@@ -6,11 +6,29 @@
 /*   By: jimkwon <jimkwon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/06 16:13:15 by begrey            #+#    #+#             */
-/*   Updated: 2020/10/12 04:56:51 by jimkwon          ###   ########.fr       */
+/*   Updated: 2020/10/12 14:51:34 by jimkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int			is_in(char *b, char *l, size_t len, size_t len_temp)
+{
+	size_t	i;
+
+	i = len_temp;
+	while (*b != '\0' && *l != '\0')
+	{
+		if (i == len || *b != *l)
+			return (-1);
+		b++;
+		l++;
+		i++;
+	}
+	if (*l == '\0')
+		return (1);
+	return (-1);
+}
 
 char		*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -30,16 +48,12 @@ char		*ft_strnstr(const char *big, const char *little, size_t len)
 		if (*b == *l)
 		{
 			temp = b;
-			while (*b != '\0' && *l != '\0')
-			{
-				b++;
-				l++;
-			}
-			if (*l == '\0')
-				return (b);
+			if (is_in(b, l, len, i) == 1)
+				return (temp);
 			b = temp;
 		}
 		b++;
+		i++;
 	}
 	return (NULL);
 }
