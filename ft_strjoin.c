@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jimkwon <jimkwon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/07 17:29:25 by jimkwon           #+#    #+#             */
-/*   Updated: 2020/10/12 20:28:48 by jimkwon          ###   ########.fr       */
+/*   Created: 2020/10/12 18:14:06 by jimkwon           #+#    #+#             */
+/*   Updated: 2020/10/12 19:00:07 by jimkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strchr(const char *str, int c)
+char		*ft_strjoin(const char *s1, const char *s2)
 {
-	char	*p;
+	size_t	len;
+	size_t	i;
+	char	*str;
 
-	p = (char *)str;
-	while (*p != '\0')
-	{
-		if (*p == c)
-			return (p);
-		p++;
-	}
-	if (c == '\0')
-		return (p);
-	return (NULL);
+	i = 0;
+	len = ft_strlen(s1) + ft_strlen(s2);
+	if (len == 0)
+		return (ft_strdup(""));
+	else if (*s1 == '\0')
+		return (ft_strdup(s2));
+	else if (*s2 == '\0')
+		return (ft_strdup(s1));
+	else
+		str = (char *)malloc(sizeof(char) * (len + 1));
+	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
+	ft_strlcat(str, s2, len + 1);
+	return (str);
 }

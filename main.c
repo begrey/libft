@@ -6,7 +6,7 @@
 /*   By: jimkwon <jimkwon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 15:57:12 by jimkwon           #+#    #+#             */
-/*   Updated: 2020/10/12 15:17:41 by jimkwon          ###   ########.fr       */
+/*   Updated: 2020/10/12 20:00:31 by jimkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 
 int                             main(int argc, const char *argv[])
 {
-        char    *my;
-        char    *ans;
-        
-        ans = "ninini";
-        my = ft_strdup(ans);
-        printf("%s\n", my);
+        char s1[] = "          ";
+        char    *s;
+
+        s = ft_strtrim(s1, " ");
+        printf("%s\n", s);
 }

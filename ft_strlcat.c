@@ -6,7 +6,7 @@
 /*   By: jimkwon <jimkwon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 17:29:37 by jimkwon           #+#    #+#             */
-/*   Updated: 2020/10/12 04:56:53 by jimkwon          ###   ########.fr       */
+/*   Updated: 2020/10/12 17:25:12 by jimkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ size_t		ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	dest_len;
 	size_t	src_len;
 
-	i = 0;
-	dest_len = count_len(dest);
+	dest_len = ft_strlen(dest);
 	src_len = count_len((char *)src);
+	i = 0;
 	while (i++ < (int)dest_len)
 		dest++;
 	i = 0;
@@ -46,7 +46,8 @@ size_t		ft_strlcat(char *dest, const char *src, size_t size)
 		src++;
 		i++;
 	}
-	*dest = '\0';
+	if (size > dest_len)
+		*dest = '\0';
 	if (size > dest_len)
 		return (src_len + dest_len);
 	else

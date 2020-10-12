@@ -6,7 +6,7 @@
 /*   By: jimkwon <jimkwon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 20:03:15 by jimkwon           #+#    #+#             */
-/*   Updated: 2020/10/12 15:08:50 by jimkwon          ###   ########.fr       */
+/*   Updated: 2020/10/12 19:16:54 by jimkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,7 @@ int		ft_isprint(int c);
 int     ft_tolower(int c);
 int     ft_toupper(int c);
 void    *ft_calloc(size_t elt_count, size_t elt_size);
+char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_strtrim(const char *s1, const char *set);
 #endif

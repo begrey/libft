@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jimkwon <jimkwon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/07 17:29:25 by jimkwon           #+#    #+#             */
-/*   Updated: 2020/10/12 20:28:48 by jimkwon          ###   ########.fr       */
+/*   Created: 2020/10/12 19:04:39 by jimkwon           #+#    #+#             */
+/*   Updated: 2020/10/12 20:39:23 by jimkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strchr(const char *str, int c)
+char	*ft_strtrim(char const *s1, const char *set)
 {
-	char	*p;
+	char	*str;
+	char	*ptr;
+	size_t	i;
+	size_t	len;
 
-	p = (char *)str;
-	while (*p != '\0')
+	i = 0;
+	str = ft_strdup(s1);
+	len = ft_strlen(str);
+	ptr = str;
+	while (ft_strchr(set, *str) != NULL && *str != '\0')
 	{
-		if (*p == c)
-			return (p);
-		p++;
+		str++;
+		i++;
 	}
-	if (c == '\0')
-		return (p);
-	return (NULL);
+	if (i == len)
+		return ("");
+	while (*ptr != '\0')
+		ptr++;
+	ptr--;
+	while (ft_strchr(set, *ptr) != NULL)
+		ptr--;
+	*(++ptr) = '\0';
+	return (str);
 }
