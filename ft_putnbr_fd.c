@@ -6,7 +6,7 @@
 /*   By: jimkwon <jimkwon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 02:15:10 by jimkwon           #+#    #+#             */
-/*   Updated: 2020/10/13 04:18:54 by jimkwon          ###   ########.fr       */
+/*   Updated: 2020/10/13 15:38:56 by jimkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void		ft_putnbr_fd(int n, int fd)
 {
 	char	c;
 
+	if (fd < 0)
+		return ;
 	if (n < 0)
 	{
 		write(fd, "-", 1);

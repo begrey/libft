@@ -6,7 +6,7 @@
 /*   By: jimkwon <jimkwon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 17:28:31 by jimkwon           #+#    #+#             */
-/*   Updated: 2020/10/12 04:56:58 by jimkwon          ###   ########.fr       */
+/*   Updated: 2020/10/13 20:53:17 by jimkwon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ void				*ft_memccpy(void *dest, const void *src, int c, size_t n)
 		if (flag == n)
 			return (NULL);
 		else
-			return (&dest[n]);
+			return ((void *)(dest + n));
 	}
 	else
 	{
 		ft_memcpy(dest, src, flag + 1);
-		return (&dest[flag + 1]);
+		return ((void *)(dest + (flag + 1)));
 	}
 }
